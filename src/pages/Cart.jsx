@@ -79,7 +79,7 @@ export default function Cart() {
                       </div>
                     </div>
                     <div className="cart-price">
-                      <span className="cell-label">Price:</span>${line.price.toFixed(2)}
+                      <span className="cell-label">Price:</span>₹{line.price.toFixed(2)}
                     </div>
                     <div>
                       <span className="cell-label">Quantity:</span>
@@ -90,7 +90,7 @@ export default function Cart() {
                       />
                     </div>
                     <div className="cart-total-cell">
-                      <span className="cell-label">Total:</span>${(line.price * line.quantity).toFixed(2)}
+                      <span className="cell-label">Total:</span>₹{(line.price * line.quantity).toFixed(2)}
                     </div>
                     <button
                       className="remove-btn"
@@ -135,21 +135,21 @@ export default function Cart() {
 
                 <div className="summary-line">
                   <span>Sub Total</span>
-                  <span>${subtotal.toFixed(2)}</span>
+                  <span>₹{subtotal.toFixed(2)}</span>
                 </div>
                 {discount > 0 && (
                   <div className="summary-line">
                     <span>Discount</span>
-                    <span>-${discountAmount.toFixed(2)}</span>
+                    <span>−₹{discountAmount.toFixed(2)}</span>
                   </div>
                 )}
                 <div className="summary-line">
                   <span>Shipping</span>
-                  <span>${shipping.toFixed(2)}</span>
+                  <span>₹{shipping.toFixed(2)}</span>
                 </div>
                 <div className="summary-line total">
                   <span>Grand Total</span>
-                  <span className="value">${total.toFixed(2)}</span>
+                  <span className="value">₹{total.toFixed(2)}</span>
                 </div>
 
                 <button

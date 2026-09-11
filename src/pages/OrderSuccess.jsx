@@ -34,7 +34,7 @@ export default function OrderSuccess() {
           <p>A confirmation email has been sent to {order.customer?.email || 'your inbox'}.</p>
           <div className="order-number">Order #{order.orderNumber}</div>
           <p style={{ marginBottom: 30 }}>
-            Grand Total: <strong style={{ color: 'var(--color-pink)' }}>${order.grandTotal?.toFixed(2)}</strong>
+            Grand Total: <strong style={{ color: 'var(--color-pink)' }}>₹{order.grandTotal?.toFixed(2)}</strong>
           </p>
           <div className="success-actions">
             <Link to="/shop" className="btn btn-primary">

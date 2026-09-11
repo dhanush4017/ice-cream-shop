@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 import { useCart } from '../context/CartContext.jsx'
+import { useAuth } from '../context/AuthContext.jsx'
 
 const NAV_LINKS = [
   { to: '/', label: 'Home' },
@@ -11,6 +12,7 @@ const NAV_LINKS = [
 
 export default function Header() {
   const { itemCount } = useCart()
+  const { user, logout } = useAuth()
   const [menuOpen, setMenuOpen] = useState(false)
   const [searchOpen, setSearchOpen] = useState(false)
   const [query, setQuery] = useState('')
@@ -61,6 +63,9 @@ export default function Header() {
           <NavLink to="/shop" className="btn btn-primary btn-sm">
             Shop Now →
           </NavLink>
+          <button className="logout-btn" onClick={logout} title={`Logout ${user?.name || ''}`}>
+            Logout
+          </button>
           <button
             className="mobile-nav-toggle"
             onClick={() => setMenuOpen((v) => !v)}

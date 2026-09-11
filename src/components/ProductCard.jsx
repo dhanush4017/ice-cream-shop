@@ -41,8 +41,8 @@ export default function ProductCard({ product, onAdded }) {
         </h3>
         <div className="product-price-row">
           <span className="product-price">
-            {product.oldPrice && <span className="old-price">${product.oldPrice.toFixed(2)}</span>}
-            ${product.price.toFixed(2)}
+            {product.oldPrice && <span className="old-price">₹{product.oldPrice.toFixed(2)}</span>}
+            ₹{product.price.toFixed(2)}
           </span>
           <button
             type="button"

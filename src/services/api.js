@@ -44,3 +44,17 @@ export function getProduct(id) {
 }
 
 export { API_BASE_URL }
+
+export function registerUser(payload) {
+  return request('/auth/register', {
+    method: 'POST',
+    body: JSON.stringify(payload),
+  })
+}
+
+export function loginUser(payload) {
+  return request('/auth/login', {
+    method: 'POST',
+    body: JSON.stringify(payload),
+  })
+}

@@ -141,8 +141,8 @@ export default function ProductDetail() {
               <StarRating rating={product.rating} reviews={product.reviews} />
               <h1>{product.name}</h1>
               <div className="price-row">
-                <span className="price">${product.price.toFixed(2)}</span>
-                {product.oldPrice && <span className="old-price">${product.oldPrice.toFixed(2)}</span>}
+                <span className="price">₹{product.price.toFixed(2)}</span>
+                {product.oldPrice && <span className="old-price">₹{product.oldPrice.toFixed(2)}</span>}
               </div>
               <p className="desc">{product.description}</p>
 

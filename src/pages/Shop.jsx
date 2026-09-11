@@ -169,7 +169,7 @@ export default function Shop() {
               <div className="filter-block">
                 <h4>Filter By Price</h4>
                 <div className="price-range-value">
-                  $0 - ${maxPrice}
+                  ₹0 - ₹{maxPrice}
                 </div>
                 <input
                   type="range"
@@ -189,8 +189,8 @@ export default function Shop() {
                     <div>
                       <div className="name">{p.name}</div>
                       <div className="price">
-                        {p.oldPrice && <span className="old-price">${p.oldPrice.toFixed(2)}</span>}
-                        <span className="new-price">${p.price.toFixed(2)}</span>
+                        {p.oldPrice && <span className="old-price">₹{p.oldPrice.toFixed(2)}</span>}
+                        <span className="new-price">₹{p.price.toFixed(2)}</span>
                       </div>
                     </div>
                   </Link>
@@ -240,7 +240,7 @@ export default function Shop() {
                         </h3>
                         <p className="product-desc">{product.description}</p>
                         <div className="product-price-row">
-                          <span className="product-price">${product.price.toFixed(2)}</span>
+                          <span className="product-price">₹{product.price.toFixed(2)}</span>
                           <button
                             className="btn btn-primary btn-sm"
                             onClick={() => addToCart(product, { quantity: 1 })}

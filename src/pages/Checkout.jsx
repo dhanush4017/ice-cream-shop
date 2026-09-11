@@ -323,26 +323,26 @@ export default function Checkout() {
                       {line.size ? `Size: ${line.size}` : ''}
                     </div>
                   </div>
-                  <div className="price">${(line.price * line.quantity).toFixed(2)}</div>
+                  <div className="price">₹{(line.price * line.quantity).toFixed(2)}</div>
                 </div>
               ))}
               <div className="summary-line" style={{ marginTop: 14 }}>
                 <span>Sub Total</span>
-                <span>${subtotal.toFixed(2)}</span>
+                <span>₹{subtotal.toFixed(2)}</span>
               </div>
               <div className="summary-line">
                 <span>Shipping</span>
-                <span>${shipping.toFixed(2)}</span>
+                <span>₹{shipping.toFixed(2)}</span>
               </div>
               {discountRate > 0 && (
                 <div className="summary-line">
                   <span>Discount</span>
-                  <span>-${discountAmount.toFixed(2)}</span>
+                  <span>−₹{discountAmount.toFixed(2)}</span>
                 </div>
               )}
               <div className="checkout-grand-total">
                 <span>Grand Total</span>
-                <span className="value">${checkoutTotal.toFixed(2)}</span>
+                <span className="value">₹{checkoutTotal.toFixed(2)}</span>
               </div>
             </aside>
           </form>
