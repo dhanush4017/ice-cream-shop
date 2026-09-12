@@ -32,6 +32,7 @@
   display: flex;
   gap: 14px;
   align-items: center;
+  min-width: 0;
 }
 
 .cart-product-cell img {
@@ -46,6 +47,7 @@
   font-weight: 600;
   font-size: 0.92rem;
   margin-bottom: 4px;
+  word-break: break-word;
 }
 
 .cart-product-cell .variant {
@@ -93,6 +95,8 @@
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-card);
   padding: 24px;
+  box-sizing: border-box;
+  min-width: 0;
 }
 
 .order-summary-card h3 {
@@ -106,18 +110,34 @@
   display: flex;
   gap: 8px;
   margin-bottom: 22px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .coupon-row input {
   flex: 1;
+  min-width: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.coupon-row button {
+  flex-shrink: 0;
 }
 
 .summary-line {
   display: flex;
   justify-content: space-between;
+  gap: 15px;
   font-size: 0.9rem;
   color: var(--color-text-muted);
   padding: 8px 0;
+  min-width: 0;
+}
+
+.summary-line span:last-child {
+  text-align: right;
+  white-space: nowrap;
 }
 
 .summary-line.total {
@@ -135,16 +155,24 @@
 
 .summary-trust {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 8px;
   font-size: 0.78rem;
   color: var(--color-text-muted);
   margin-top: 16px;
 }
 
+.btn-block {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+
+/* Tablet and Mobile */
 @media (max-width: 900px) {
   .cart-layout {
     grid-template-columns: 1fr;
+    gap: 24px;
   }
 
   .cart-table-header {
@@ -153,9 +181,26 @@
 
   .cart-row {
     grid-template-columns: 1fr;
-    gap: 10px;
+    gap: 12px;
     position: relative;
     padding: 20px 0;
+    min-width: 0;
+  }
+
+  .cart-product-cell {
+    width: 100%;
+    padding-right: 35px;
+    box-sizing: border-box;
+  }
+
+  .cart-product-cell img {
+    width: 70px;
+    height: 70px;
+  }
+
+  .cart-price,
+  .cart-total-cell {
+    width: 100%;
   }
 
   .cart-row .remove-btn {
@@ -165,9 +210,53 @@
   }
 
   .cart-row .cell-label {
+    display: inline-block;
     font-size: 0.72rem;
     text-transform: uppercase;
     color: var(--color-text-muted);
     margin-right: 6px;
+  }
+
+  .order-summary-card {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .coupon-row {
+    width: 100%;
+  }
+
+  .summary-line {
+    width: 100%;
+  }
+
+  .summary-trust {
+    align-items: flex-start;
+  }
+}
+
+
+/* Small Mobile */
+@media (max-width: 480px) {
+  .order-summary-card {
+    padding: 16px;
+  }
+
+  .coupon-row {
+    gap: 6px;
+  }
+
+  .coupon-row button {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .cart-product-cell img {
+    width: 64px;
+    height: 64px;
+  }
+
+  .cart-product-cell {
+    gap: 10px;
   }
 }
