@@ -13,72 +13,133 @@ const NAV_LINKS = [
 export default function Header() {
   const { itemCount } = useCart()
   const { user, logout } = useAuth()
+
   const [menuOpen, setMenuOpen] = useState(false)
   const [searchOpen, setSearchOpen] = useState(false)
   const [query, setQuery] = useState('')
+
   const navigate = useNavigate()
 
   function handleSearchSubmit(e) {
     e.preventDefault()
+
     navigate(`/shop?search=${encodeURIComponent(query.trim())}`)
+
     setSearchOpen(false)
     setQuery('')
+  }
+
+  function handleLogout() {
+    logout()
+    setMenuOpen(false)
   }
 
   return (
     <header className="site-header">
       <div className="container">
-        <NavLink to="/" className="logo" onClick={() => setMenuOpen(false)}>
+
+        {/* LOGO */}
+        <NavLink
+          to="/"
+          className="logo"
+          onClick={() => setMenuOpen(false)}
+        >
           🍦 Icy<span>Tales</span>
         </NavLink>
 
+        {/* NAVIGATION */}
         <nav className={`main-nav ${menuOpen ? 'open' : ''}`}>
+
           {NAV_LINKS.map((link) => (
             <NavLink
               key={link.to}
               to={link.to}
-              className={({ isActive }) => (isActive ? 'active' : '')}
+              className={({ isActive }) =>
+                isActive ? 'active' : ''
+              }
               onClick={() => setMenuOpen(false)}
               end={link.to === '/'}
             >
               {link.label}
             </NavLink>
           ))}
+
+          {/* SAME ONE LOGOUT BUTTON */}
+          {user && (
+            <button
+              type="button"
+              className="logout-btn"
+              onClick={handleLogout}
+              title={`Logout ${user?.name || ''}`}
+            >
+              <span className="logout-icon">↪</span>
+              <span>Logout</span>
+            </button>
+          )}
+
         </nav>
 
+        {/* HEADER ACTIONS */}
         <div className="header-actions">
+
+          {/* SEARCH */}
           <button
+            type="button"
             className="icon-btn"
             aria-label="Search"
             onClick={() => setSearchOpen((v) => !v)}
           >
             🔍
           </button>
-          <NavLink to="/cart" className="cart-icon-wrap">
-            <span className="icon-btn" aria-label="Cart">
+
+          {/* CART */}
+          <NavLink
+            to="/cart"
+            className="cart-icon-wrap"
+          >
+            <span
+              className="icon-btn"
+              aria-label="Cart"
+            >
               🛍️
             </span>
-            {itemCount > 0 && <span className="cart-badge">{itemCount}</span>}
+
+            {itemCount > 0 && (
+              <span className="cart-badge">
+                {itemCount}
+              </span>
+            )}
           </NavLink>
-          <NavLink to="/shop" className="btn btn-primary btn-sm">
+
+          {/* SHOP NOW */}
+          <NavLink
+            to="/shop"
+            className="btn btn-primary btn-sm"
+          >
             Shop Now →
           </NavLink>
-          <button className="logout-btn" onClick={logout} title={`Logout ${user?.name || ''}`}>
-            Logout
-          </button>
+
+          {/* MOBILE MENU */}
           <button
-            className="mobile-nav-toggle"
+            type="button"
+            className={`mobile-nav-toggle ${
+              menuOpen ? 'menu-active' : ''
+            }`}
             onClick={() => setMenuOpen((v) => !v)}
             aria-label="Toggle menu"
+            aria-expanded={menuOpen}
           >
             {menuOpen ? '✕' : '☰'}
           </button>
+
         </div>
       </div>
 
+      {/* SEARCH */}
       {searchOpen && (
         <div className="header-search">
           <form onSubmit={handleSearchSubmit}>
+
             <input
               type="text"
               autoFocus
@@ -86,9 +147,14 @@ export default function Header() {
               value={query}
               onChange={(e) => setQuery(e.target.value)}
             />
-            <button type="submit" className="btn btn-primary btn-sm">
+
+            <button
+              type="submit"
+              className="btn btn-primary btn-sm"
+            >
               Search
             </button>
+
           </form>
         </div>
       )}
