@@ -1,0 +1,141 @@
+.about-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.about-row img {
+  border-radius: 50%;
+  width: 340px;
+  height: 340px;
+  object-fit: cover;
+  margin: 0 auto;
+}
+
+.about-row.reverse {
+  background: var(--color-purple);
+  color: #fff;
+  border-radius: var(--radius-lg);
+  padding: 40px;
+}
+
+.about-row.reverse img {
+  border-radius: var(--radius-md);
+}
+
+.about-row.reverse p {
+  color: rgba(255,255,255,0.8);
+}
+
+.about-row h2 {
+  font-size: 1.9rem;
+  margin-bottom: 14px;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.stat-card {
+  background: #fff;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  text-align: center;
+  padding: 30px 10px;
+}
+
+.stat-card .number {
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  color: var(--color-pink);
+  font-weight: 700;
+}
+
+.stat-card .label {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  margin-top: 6px;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  text-align: center;
+}
+
+.team-card img {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto 14px;
+}
+
+.team-card .name {
+  font-weight: 600;
+}
+
+.team-card .role {
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+  margin-bottom: 10px;
+}
+
+.team-card .socials {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.team-card .socials a {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--color-pink);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+}
+
+.not-found {
+  text-align: center;
+  padding: 100px 20px;
+}
+
+.not-found .code {
+  font-family: var(--font-heading);
+  font-size: 6rem;
+  color: var(--color-pink);
+  font-weight: 700;
+  line-height: 1;
+}
+
+.not-found h2 {
+  margin: 16px 0;
+}
+
+.not-found p {
+  margin-bottom: 26px;
+}
+
+@media (max-width: 900px) {
+  .about-row,
+  .about-row.reverse {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .about-row img { margin-bottom: 10px; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .team-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 560px) {
+  .team-grid { grid-template-columns: 1fr; }
+  .stats-grid { grid-template-columns: 1fr 1fr; }
+}

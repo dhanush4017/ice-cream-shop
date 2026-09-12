@@ -1,0 +1,29 @@
+:root {
+  /* Brand colors pulled from the IcyTales Figma reference */
+  --color-pink: #ff5f93;
+  --color-pink-dark: #df3f76;
+  --color-pink-light: #ffe3ee;
+  --color-purple: #3d1152;
+  --color-purple-light: #6c2b8c;
+  --color-purple-soft: #f3e9ff;
+  --color-text: #2b2330;
+  --color-text-muted: #756f7a;
+  --color-border: #ece5ee;
+  --color-bg: #fff0f5;
+  --color-bg-soft: #ffe4ee;
+  --color-star: #ffb020;
+  --color-success: #2e9e5b;
+
+  --font-heading: 'Playfair Display', 'Georgia', serif;
+  --font-body: 'Poppins', 'Segoe UI', sans-serif;
+
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 24px;
+  --radius-pill: 999px;
+
+  --shadow-card: 0 12px 34px rgba(154, 62, 96, 0.10);
+  --shadow-card-hover: 0 20px 48px rgba(154, 62, 96, 0.18);
+
+  --container-width: 1180px;
+}

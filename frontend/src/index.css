@@ -1,0 +1,243 @@
+@import './styles/variables.css';
+@import './styles/base.css';
+@import './styles/buttons.css';
+@import './styles/header.css';
+@import './styles/footer.css';
+@import './styles/cards.css';
+@import './styles/home.css';
+@import './styles/shop.css';
+@import './styles/product.css';
+@import './styles/cart.css';
+@import './styles/checkout.css';
+@import './styles/orders.css';
+@import './styles/admin.css';
+@import './styles/misc.css';
+
+
+/* Authentication pages */
+.auth-page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 34px 20px;
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(circle at top left, #ffe1ed 0, #fff0f5 38%, #fff9fb 100%);
+}
+
+.auth-page::before, .auth-page::after {
+  content: '';
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  background: rgba(255, 182, 205, 0.25);
+  filter: blur(4px);
+  animation: authFloat 7s ease-in-out infinite;
+}
+.auth-page::before { top: -110px; right: -80px; }
+.auth-page::after { bottom: -130px; left: -90px; animation-delay: -3s; }
+
+.auth-card {
+  width: min(960px, 100%);
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  background: rgba(255, 255, 255, 0.86);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-radius: 32px;
+  box-shadow: 0 24px 70px rgba(161, 78, 105, 0.16);
+  overflow: hidden;
+  position: relative;
+  z-index: 2;
+  backdrop-filter: blur(14px);
+  animation: authCardIn .65s ease both;
+}
+
+.auth-visual {
+  min-height: 610px;
+  padding: 60px 46px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(145deg, #ffd6e5, #fff0f5 60%, #ffe5ee);
+  position: relative;
+}
+.auth-visual::before {
+  content: '';
+  position: absolute;
+  inset: 28px;
+  border: 1px dashed rgba(190, 88, 119, .25);
+  border-radius: 24px;
+}
+.auth-icecream {
+  width: 138px;
+  height: 138px;
+  display: grid;
+  place-items: center;
+  font-size: 78px;
+  background: rgba(255,255,255,.7);
+  border-radius: 50%;
+  box-shadow: 0 18px 38px rgba(185, 83, 118, .17);
+  animation: authBounce 3s ease-in-out infinite;
+}
+.auth-kicker {
+  margin: 28px 0 8px;
+  color: #b34f72;
+  font-size: 13px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+.auth-visual h1 {
+  margin: 0;
+  max-width: 390px;
+  font-size: clamp(32px, 4vw, 48px);
+  line-height: 1.05;
+  color: #6f3149;
+}
+.auth-visual > p:last-child {
+  max-width: 390px;
+  color: #8b6572;
+  line-height: 1.7;
+  margin-top: 18px;
+}
+
+.auth-form-area { padding: 54px clamp(30px, 5vw, 68px); }
+.auth-brand { display: inline-block; text-decoration: none; color: #6f3149; font-size: 25px; font-weight: 900; margin-bottom: 28px; }
+.auth-brand span { color: #d56b91; }
+.auth-form-area h2 { margin: 0; font-size: 38px; color: #3e2730; }
+.auth-subtitle { margin: 8px 0 28px; color: #8d747d; line-height: 1.5; }
+.auth-form { display: grid; gap: 9px; }
+.auth-form label { color: #5b414a; font-size: 14px; font-weight: 700; margin-top: 7px; }
+.auth-form input { width: 100%; box-sizing: border-box; padding: 14px 16px; border: 1px solid #ead5dc; border-radius: 13px; outline: none; background: #fffafb; color: #3f2d33; font-size: 15px; transition: .25s ease; }
+.auth-form input:focus { border-color: #d96f96; box-shadow: 0 0 0 4px rgba(217, 111, 150, .12); transform: translateY(-1px); }
+.auth-submit { width: 100%; margin-top: 12px; min-height: 50px; }
+.auth-error { padding: 11px 13px; border-radius: 11px; background: #fff0f1; color: #b03e4f; font-size: 13px; border: 1px solid #ffd2d8; margin-top: 7px; }
+.auth-switch { margin: 24px 0 0; text-align: center; color: #8d747d; font-size: 14px; }
+.auth-switch a { color: #c4587d; font-weight: 800; text-decoration: none; }
+.auth-switch a:hover { text-decoration: underline; }
+.auth-decoration { position: absolute; z-index: 1; font-size: 42px; animation: authFloat 5s ease-in-out infinite; }
+.auth-decoration-one { top: 13%; left: 8%; }
+.auth-decoration-two { right: 8%; bottom: 14%; animation-delay: -2s; }
+.logout-btn { border: 0; background: transparent; color: #754553; font-weight: 700; cursor: pointer; padding: 9px 8px; }
+.logout-btn:hover { color: #c4587d; }
+
+@keyframes authFloat { 0%,100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-15px) rotate(5deg); } }
+@keyframes authBounce { 0%,100% { transform: translateY(0) rotate(-2deg); } 50% { transform: translateY(-10px) rotate(2deg); } }
+@keyframes authCardIn { from { opacity: 0; transform: translateY(18px) scale(.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
+
+@media (max-width: 760px) {
+  .auth-card { grid-template-columns: 1fr; border-radius: 24px; }
+  .auth-visual { min-height: 290px; padding: 34px 28px; }
+  .auth-visual::before { inset: 16px; }
+  .auth-icecream { width: 92px; height: 92px; font-size: 52px; }
+  .auth-kicker { margin-top: 16px; }
+  .auth-visual h1 { font-size: 30px; }
+  .auth-visual > p:last-child { margin: 10px 0 0; }
+  .auth-form-area { padding: 34px 24px 38px; }
+  .auth-form-area h2 { font-size: 32px; }
+  .logout-btn { display: none; }
+}
+
+/* =========================================================
+   IcyTales — Final Responsive & Interaction Hardening
+   Safe additions: preserves existing visual identity.
+   ========================================================= */
+
+html, body, #root {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+img, video, svg, canvas {
+  max-width: 100%;
+}
+
+button, a, input, textarea, select {
+  max-width: 100%;
+}
+
+@media (max-width: 900px) {
+  body {
+    min-width: 0;
+  }
+
+  .container {
+    width: min(100% - 32px, 1200px);
+    margin-inline: auto;
+  }
+}
+
+@media (max-width: 560px) {
+  .container {
+    width: calc(100% - 32px);
+    padding-inline: 0;
+  }
+
+  .footer-inner {
+    width: 100%;
+    max-width: 100%;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+    margin-inline: auto;
+    grid-template-columns: 1fr !important;
+    gap: 28px;
+  }
+
+  footer {
+    overflow-x: clip;
+  }
+
+  footer * {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 390px) {
+  .container {
+    width: calc(100% - 28px);
+  }
+
+  .footer-inner {
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+  }
+}
+
+@media (max-width: 340px) {
+  .container {
+    width: calc(100% - 24px);
+  }
+
+  .footer-inner {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+}
+
+/* Prevent accidental fixed-width overflow in common content surfaces. */
+.card, .product-card, .product-grid, .cart, .checkout,
+.order, .orders, .admin, .dashboard, form, table {
+  max-width: 100%;
+}
+
+/* Premium but lightweight interaction defaults. */
+button, a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
